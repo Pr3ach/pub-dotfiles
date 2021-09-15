@@ -139,6 +139,14 @@ autocmd BufEnter * silent! lcd %:p:h
 " Enable beautifier/prettifier on xml files simply using cmd 'gg=G'
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
+"****************************************************************
+"								*
+" FZF plugin config						*
+"								*
+"****************************************************************
+let $FZF_DEFAULT_COMMAND='fd --type f' " use fd rather than find, much faster
+nnoremap <C-p> :Files<CR>
+
 " ***************************************************************
 "								*
 " NvimTree config						*
