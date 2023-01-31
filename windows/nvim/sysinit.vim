@@ -21,7 +21,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " fuzzy file finder
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " automatically pairs () [] ...
 Plug 'jiangmiao/auto-pairs'
@@ -230,14 +231,12 @@ lua << EOF
 EOF
 
 "****************************************************************
-"								        *
-" ctrlp plugin config						*
+"								*
+" FZF plugin config						*
 "								*
 "****************************************************************
-" Disable caching: no need to refresh cache for created files
-let g:ctrlp_use_caching = 0
-" set root to folder containing .git .svn ...
-let g:ctrlp_working_path_mode = 'rc'
+let $FZF_DEFAULT_COMMAND='fd --type f' " use fd rather than find, much faster
+nnoremap <C-p> :Files<CR>
 
 "****************************************************************
 "								*
